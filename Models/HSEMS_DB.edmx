@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HSEMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HSEMS.dbo.PEE_Form' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PEE_Form">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="submitted_date" Type="datetime" />
+          <Property Name="item_description" Type="nvarchar(max)" />
+          <Property Name="brand" Type="nvarchar(max)" />
+          <Property Name="registration_no" Type="nvarchar(max)" />
+          <Property Name="spec1" Type="int" />
+          <Property Name="spec2" Type="int" />
+          <Property Name="spec3" Type="int" />
+          <Property Name="spec4" Type="int" />
+          <Property Name="spec5" Type="int" />
+          <Property Name="others" Type="int" />
+          <Property Name="action" Type="nvarchar(max)" />
+          <Property Name="approved" Type="int" />
+          <Property Name="approved_by" Type="int" />
+          <Property Name="approved_date" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HSEMS.dbo.Person' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="employee_id" Type="int" />
+          <Property Name="dept_id" Type="int" />
+        </EntityType>
+        <EntityContainer Name="HSEMSModelStoreContainer">
+          <EntitySet Name="PEE_Form" EntityType="Self.PEE_Form" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PEE_Form].[ID] AS [ID], 
+    [PEE_Form].[user_id] AS [user_id], 
+    [PEE_Form].[submitted_date] AS [submitted_date], 
+    [PEE_Form].[item_description] AS [item_description], 
+    [PEE_Form].[brand] AS [brand], 
+    [PEE_Form].[registration_no] AS [registration_no], 
+    [PEE_Form].[spec1] AS [spec1], 
+    [PEE_Form].[spec2] AS [spec2], 
+    [PEE_Form].[spec3] AS [spec3], 
+    [PEE_Form].[spec4] AS [spec4], 
+    [PEE_Form].[spec5] AS [spec5], 
+    [PEE_Form].[others] AS [others], 
+    [PEE_Form].[action] AS [action], 
+    [PEE_Form].[approved] AS [approved], 
+    [PEE_Form].[approved_by] AS [approved_by], 
+    [PEE_Form].[approved_date] AS [approved_date]
+    FROM [dbo].[PEE_Form] AS [PEE_Form]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Person" EntityType="Self.Person" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Person].[user_id] AS [user_id], 
+    [Person].[username] AS [username], 
+    [Person].[password] AS [password], 
+    [Person].[employee_id] AS [employee_id], 
+    [Person].[dept_id] AS [dept_id]
+    FROM [dbo].[Person] AS [Person]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HSEMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PEE_Form">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="submitted_date" Type="DateTime" Precision="3" />
+          <Property Name="item_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="registration_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="spec1" Type="Int32" />
+          <Property Name="spec2" Type="Int32" />
+          <Property Name="spec3" Type="Int32" />
+          <Property Name="spec4" Type="Int32" />
+          <Property Name="spec5" Type="Int32" />
+          <Property Name="others" Type="Int32" />
+          <Property Name="action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="approved" Type="Int32" />
+          <Property Name="approved_by" Type="Int32" />
+          <Property Name="approved_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="employee_id" Type="Int32" />
+          <Property Name="dept_id" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="HSEMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PEE_Form" EntityType="Self.PEE_Form" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HSEMSModelStoreContainer" CdmEntityContainer="HSEMSEntities">
+          <EntitySetMapping Name="PEE_Form">
+            <EntityTypeMapping TypeName="HSEMSModel.PEE_Form">
+              <MappingFragment StoreEntitySet="PEE_Form">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="submitted_date" ColumnName="submitted_date" />
+                <ScalarProperty Name="item_description" ColumnName="item_description" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="registration_no" ColumnName="registration_no" />
+                <ScalarProperty Name="spec1" ColumnName="spec1" />
+                <ScalarProperty Name="spec2" ColumnName="spec2" />
+                <ScalarProperty Name="spec3" ColumnName="spec3" />
+                <ScalarProperty Name="spec4" ColumnName="spec4" />
+                <ScalarProperty Name="spec5" ColumnName="spec5" />
+                <ScalarProperty Name="others" ColumnName="others" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="approved" ColumnName="approved" />
+                <ScalarProperty Name="approved_by" ColumnName="approved_by" />
+                <ScalarProperty Name="approved_date" ColumnName="approved_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="HSEMSModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

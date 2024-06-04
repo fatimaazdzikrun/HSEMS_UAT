@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HSEMSModelStoreContainer" CdmEntityContainer="HSEMSEntities">
+    <EntitySetMapping Name="PEE_Form">
+      <EntityTypeMapping TypeName="HSEMSModel.PEE_Form">
+        <MappingFragment StoreEntitySet="PEE_Form">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="submitted_date" ColumnName="submitted_date" />
+          <ScalarProperty Name="item_description" ColumnName="item_description" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="registration_no" ColumnName="registration_no" />
+          <ScalarProperty Name="spec1" ColumnName="spec1" />
+          <ScalarProperty Name="spec2" ColumnName="spec2" />
+          <ScalarProperty Name="spec3" ColumnName="spec3" />
+          <ScalarProperty Name="spec4" ColumnName="spec4" />
+          <ScalarProperty Name="spec5" ColumnName="spec5" />
+          <ScalarProperty Name="others" ColumnName="others" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
+          <ScalarProperty Name="approved_by" ColumnName="approved_by" />
+          <ScalarProperty Name="approved_date" ColumnName="approved_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="HSEMSModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

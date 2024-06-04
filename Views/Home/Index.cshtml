@@ -1,0 +1,78 @@
+﻿﻿﻿@{
+    ViewBag.Title = "Home Page";
+    var sessionuser = (HSEMS.Models.Person)Session["user"];
+    string filepath = ViewBag.filess;
+}
+<style>
+    .masthead-heading {
+        font-size: 3.25rem;
+        font-weight: 700;
+        line-height: 3.25rem;
+        margin-bottom: 1rem;
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .masthead-heading2 {
+        font-size: 25px;
+        font-weight: 700;
+        /*line-height: 3.25rem;*/
+        margin-bottom: 0 px;
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .masthead-subheading {
+        font-size: 1rem;
+        /*line-height: 1.5rem;*/
+        margin-bottom: 25px;
+        font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    a:hover span {
+        color: #A2DBEF;
+    }
+</style>
+
+<div class="row col-lg-12 mb-4">
+
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="masthead-heading mt-5" style="color:#3A7EA9">Welcome</div>
+        <div class="masthead-subheading" style="color:#3A7EA9"><h2><span>@sessionuser.username</span></h2></div>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-5">
+        <div class="masthead-heading2 mt-5">
+            <a style="font-size:25px; color:white; font-weight:bold;">HEALTH, SAFETY, ENVIRONMENT</a>
+            <a style="font-size:25px;color:white; font-weight:bold;">MANAGEMENT SYSTEM</a>
+        </div>
+
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20rem">
+    <div class="col-lg-12">
+        <a class="menu1" style="color: black; font-size: 1.5rem; color:#3A7EA9; margin-left:2.5rem;" margin-left:2rem;"" href="@Url.Action("OpenPowerBI","Home")" target="_blank"><span> HSEMS Dashboard</span></a><br />
+        <a class="menu1" style="color: black; font-size: 1.5rem; color:#3A7EA9; margin-left:2.5rem;" onclick="PrintPDF()"><span>Ketahui Borang HSEMS unit anda</span></a><br />
+        <a class="menu2" style="color: black; font-size: 1.5rem; color:#3A7EA9; margin-left:2.5rem;" onclick="PrintPDF2()"><span> Level 2 (GP) GRID-MGMT-810-00</span></a>
+    </div>
+</div>
+
+<script>
+
+	 function PrintPDF() {
+         window.open('@Url.Action("OpenPdf","Home", new {fileName="PIC.pdf"})', '_blank');
+    }
+
+	function PrintPDF2() {
+         window.open('@Url.Action("OpenPdf","Home",new {fileName="Operational_Control_Procedure2.pdf"})', '_blank');
+    }
+
+</script>
+
+
+
+
+
+

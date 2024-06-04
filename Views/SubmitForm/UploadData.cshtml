@@ -1,0 +1,239 @@
+﻿﻿﻿@model List<HSEMS.Models.FileUploads>
+
+@{
+    ViewBag.Title = "Upload HSEMS Form Here";
+    int count = 0;
+}
+
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<div class="row mb-3">
+
+</div>
+<div class="card shadow">
+    <div class="card-header p-0 border-bottom-0">
+        @*@Html.Partial("PhaseBar")*@
+    </div>
+    <div class="card-body">
+        <!-- upload zone -->
+        <div id="uploadQuestion" class="card shadow ">
+            <div class="card-body">
+                <div class="text-danger center">*Please upload the document with signature in pdf format.</div>
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div id="dropzone" class="bg-white shadow-sm">
+                            <form class="dropzone needsclick" id="myDropzone">
+
+                                <div class="dz-message needsclick">
+                                    <button type="button" class="dz-button text-muted"><i class="fa fa-fw fa-upload"></i>Upload your file here</button><br />
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-lg-12" id="actions">
+                        <button type="button" class="cancel btn btn-outline-dark float-lg-right"><i class="fa fa-fw fa-times"></i> Clear Files</button>
+                        <button type="button" class="start btn btn-danger float-lg-right mr-1"><i class="fa fa-fw fa-upload"></i> Upload All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-body">
+        <table id="WebGrid" class="table table-hover border tablee">
+            <thead class="">
+                <tr>
+                    <th>No.</th>
+                    <th>FileName</th>
+                    <th>Date Uploaded</th>
+                    <th>Person In Charge</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>
+                            @Html.Raw(count)
+                        </td>
+                        <td>@Html.Raw(item.FileNames)</td>
+                        <td>@Html.Raw(string.Format("{0:dd/MM/yyyy}", item.Date_uploaded))</td>
+                        <td>@Html.Raw(item.Uploaded_by)</td>
+                        @if (item.File_status == 1)
+                        {
+                            <td style="color:green">Successful</td>
+                        }
+                        else
+                        {
+                            <td style="color:red">Failed</td>
+                        }
+
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<div id="">
+
+    <div id="template" class="file-row list-group-item">
+        <!-- This is used as the file preview template -->
+        <div class="row">
+            <div class="col-sm-6 d-flex flex-column justify-content-center">
+                <span class="name mr-3" style="word-break: break-all" data-dz-name></span>
+                <span class="size small text-muted" data-dz-size></span>
+                @*<strong class="error text-danger" data-dz-errormessage></strong>*@
+            </div>
+            @*<div class="col-sm-3 d-flex flex-column justify-content-center">
+                    @Html.DropDownList("formfreq", (IEnumerable<SelectListItem>)ViewBag.selectFrequency, htmlAttributes: new { @class = "formfreq form-control select2-dropdown", required = "required" })
+
+                </div>*@
+
+            <div class="col-sm-2 d-flex flex-column justify-content-center">
+                <div class="progress " role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <div class="progress-bar bg-warning" style="width:0%;" data-dz-uploadprogress></div>
+                </div>
+                <div class="text-center error" style="display: none;">
+                    <i style="cursor: pointer" class="fa fa-fw fa-exclamation-circle fa-2x text-danger"></i>
+
+                </div>
+                <div class="text-center success" style="display: none;">
+                    <i style="cursor: pointer" class="fa fa-fw fa-check-circle fa-2x text-success"></i>
+
+                </div>
+                <div class="text-center loading" style="display: none;">
+                    <i style="cursor: pointer" class="fa fa-fw fa-spinner fa-spin text-muted"></i>
+                </div>
+            </div>
+            <div class="col-sm-1 action pt-2 text-center">
+                <a href="javacsript:;" data-dz-remove class="delete ">
+                    <i class="fa fa-fw fa-times"></i>
+                </a>
+            </div>
+        </div>
+
+        <div>
+            @*<button class="btn btn-primary start">
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start</span>
+                </button>
+                <button data-dz-remove class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
+                </button>*@
+
+        </div>
+    </div>
+</div>
+<script>
+
+     Dropzone.options.myDropzone = false;
+
+    var previewNode = document.querySelector("#template");
+    previewNode.id = "";
+    var previewTemplate = previewNode.parentNode.innerHTML;
+    previewNode.parentNode.removeChild(previewNode);
+
+
+    var myDropzone = new Dropzone('#myDropzone', {
+        //maxFilesize: 2, // MB
+        url: '@Url.Action("UploadFile", "SubmitForm")', // Set the url
+        parallelUploads: 1,
+        maxFiles: 1,
+        timeout: 0,
+        autoQueue: false,
+        previewTemplate: previewTemplate,
+        acceptedFiles: ".docx, .docs, .doc, .pdf",
+        maxFilesize: 500
+
+
+    });
+
+
+    myDropzone.on("addedfile", function (file) {
+        //$(file.previewElement.querySelector(".select2-dropdown")).select2({
+        //    placeholder: "-- SELECT --"
+        //});
+    })
+
+    //myDropzone.on("sending", function (file, xhr, formData) {
+    //    /*file.previewElement.querySelector(".delete").setAttribute("disabled", "disabled");*/
+    //    let selection = file.previewElement.querySelector(".formfreq").value;
+    //    $(file.previewElement.querySelector(".formfreq")).prop("disabled", "disabled");
+    //    formData.append("formfreq", selection);
+    //});
+
+    myDropzone.on("error", function (file, errorMessage, xhr) {
+        $(file.previewElement.querySelector(".progress")).fadeOut();
+        $(file.previewElement.querySelector(".loading")).fadeOut();
+        $(file.previewElement.querySelector(".error")).fadeIn();
+
+        console.log('errored', file, errorMessage, xhr);
+        file.previewElement.querySelector(".fa-exclamation-circle").setAttribute('title', errorMessage);
+        $(file.previewElement.querySelector(".fa-exclamation-circle")).tooltip({
+            trigger: 'hover'
+        });
+    })
+
+    myDropzone.on("success", function (file, response) {
+        $(file.previewElement.querySelector(".progress")).fadeOut();
+        $(file.previewElement.querySelector(".loading")).fadeOut();
+        $(file.previewElement.querySelector(".success")).fadeIn();
+
+        $(file.previewElement).fadeOut(1500);
+        setTimeout(function () {
+            myDropzone.removeFile(file);
+            location.reload();
+        }, 1500)
+    })
+
+    myDropzone.on("uploadprogress", function (file, progress, bytesSent) {
+        if (progress == 100) {
+            $(file.previewElement.querySelector(".progress")).fadeOut();
+            $(file.previewElement.querySelector(".loading")).fadeIn();
+        }
+    })
+
+    document.querySelector("#actions .start").onclick = function () {
+        var ok = true;
+
+        //$(".formfreq").each(function (index, ele) {
+        //    if ($(ele).val() == "") {
+        //        ok = false;
+        //    }
+        //})
+
+        //if (!ok) {
+        //    displayFloatingAlert("Please select a data source.", "alert-danger")
+        //}
+
+        if (ok) {
+            myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
+
+        }
+    };
+
+    document.querySelector("#actions .cancel").onclick = function () {
+        myDropzone.removeAllFiles(true);
+    };
+</script>

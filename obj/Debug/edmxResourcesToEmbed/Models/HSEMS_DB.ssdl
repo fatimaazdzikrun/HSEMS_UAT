@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HSEMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HSEMS.dbo.PEE_Form' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PEE_Form">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="submitted_date" Type="datetime" />
+    <Property Name="item_description" Type="nvarchar(max)" />
+    <Property Name="brand" Type="nvarchar(max)" />
+    <Property Name="registration_no" Type="nvarchar(max)" />
+    <Property Name="spec1" Type="int" />
+    <Property Name="spec2" Type="int" />
+    <Property Name="spec3" Type="int" />
+    <Property Name="spec4" Type="int" />
+    <Property Name="spec5" Type="int" />
+    <Property Name="others" Type="int" />
+    <Property Name="action" Type="nvarchar(max)" />
+    <Property Name="approved" Type="int" />
+    <Property Name="approved_by" Type="int" />
+    <Property Name="approved_date" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HSEMS.dbo.Person' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="username" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="employee_id" Type="int" />
+    <Property Name="dept_id" Type="int" />
+  </EntityType>
+  <EntityContainer Name="HSEMSModelStoreContainer">
+    <EntitySet Name="PEE_Form" EntityType="Self.PEE_Form" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PEE_Form].[ID] AS [ID], 
+    [PEE_Form].[user_id] AS [user_id], 
+    [PEE_Form].[submitted_date] AS [submitted_date], 
+    [PEE_Form].[item_description] AS [item_description], 
+    [PEE_Form].[brand] AS [brand], 
+    [PEE_Form].[registration_no] AS [registration_no], 
+    [PEE_Form].[spec1] AS [spec1], 
+    [PEE_Form].[spec2] AS [spec2], 
+    [PEE_Form].[spec3] AS [spec3], 
+    [PEE_Form].[spec4] AS [spec4], 
+    [PEE_Form].[spec5] AS [spec5], 
+    [PEE_Form].[others] AS [others], 
+    [PEE_Form].[action] AS [action], 
+    [PEE_Form].[approved] AS [approved], 
+    [PEE_Form].[approved_by] AS [approved_by], 
+    [PEE_Form].[approved_date] AS [approved_date]
+    FROM [dbo].[PEE_Form] AS [PEE_Form]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Person" EntityType="Self.Person" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Person].[user_id] AS [user_id], 
+    [Person].[username] AS [username], 
+    [Person].[password] AS [password], 
+    [Person].[employee_id] AS [employee_id], 
+    [Person].[dept_id] AS [dept_id]
+    FROM [dbo].[Person] AS [Person]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

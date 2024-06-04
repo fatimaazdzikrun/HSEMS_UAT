@@ -1,0 +1,687 @@
+﻿﻿﻿
+@{
+    int formID = ViewBag.FormID;
+    ViewBag.Title = "Details Of Forms";
+}
+
+@*<div class="jumbotron-fluid">*@
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+
+                @if (formID == 1)
+                {
+                    <p style="font-weight: bold;">3A.01 (1) CHECKLIST BUILDING & OFFICE</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Planner MSO</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>2 months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+
+                    <div class="justify-content-center align-content-center">
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.01(1)_BUILDING_OFFICE (3 bulan).xlsx"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 2)
+                {
+                    <p style="font-weight: bold;">3A.01(2) LIGHT INTENSITY SURVEY</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Admin</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Annually</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.01(2)_LIGHT INTENSITY SURVEY (1 Tahun).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 3)
+                {
+                    <p style="font-weight: bold;">3A.03 COLOR CODING CHECKLIST & COLOR CODE</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Planner MSO</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Annually</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.03_COLOR CODING CHECKLIST_ COLOR CODE (1 Tahun).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 4)
+                {
+                    <p style="font-weight: bold;">3A.04(1) HANDTOOLS CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.04(1)_HANDTOOLS CHECKLIST (3 Bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 5)
+                {
+                    <p style="font-weight: bold;"> 3A.04(2) LABELLING OF ISOLATORS SWITCHES VALVES CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics (SUBD)</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.04(2)_labelling of switches (6 bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+
+                }
+                else if (formID == 6)
+                {
+                    <p style="font-weight: bold;">3A.04(3) PORTABLE ELECTRICAL EQUIPMENT CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.04(3)_Portable Electrical Equipment (3 bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 7)
+                {
+                    <p style="font-weight: bold;">3A.04 (4) MACHINE GUARDING CHECKLIST.doc</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.04(4)_Machine Guarding (3 Bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 8)
+                {
+                    <p style="font-weight: bold;">3A.05 COMPRESSED GAS CYLINDERS AND PRESSURE VESSEL CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics (SUBD)</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Annually</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.05 COMPRESSED GAS CYLINDERS AND PRESSURE VESSEL CHECKLIST (1 Tahun).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 9)
+                {
+                    <p style="font-weight: bold;">3A.06(1) GENERAL ELECTRICAL INSTALLATION AND FLAMEPROOF CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics (SUBD)</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+
+                        </ul>
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.06(1)_GENERAL ELECTRICAL INSTALLATION AND FLAMEPROOF CHECKLIST (3 bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 10)
+                {
+                    <p style="font-weight: bold;">3A.06(2) TESTING OF RESIDUAL CURRENT DEVICES CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.06(2)_Testing Residual Current Device (3 bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 11)
+                {
+                    <p style="font-weight: bold;">3A.08 LOG OUT TAG OUT CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.08_Lock Out_Tagout (6 bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 12)
+                {
+                    <p style="font-weight: bold;">3A.11(2) LADDERS, STAIRS, WALKWAYS (LADDER CHECKLIST)</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.11(2)_LADDERS CHECKLIST (3 bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 13)
+                {
+                    <p style="font-weight: bold;">3A.11(3) SCAFFOLDING CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+
+                        </ul>
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.11(3)_SCAFFOLDING CHECKLIST (3 bulan).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 14)
+                {
+                    <p style="font-weight: bold;">3A.13 LIFTING APPLIANCE CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Annually</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.13_Lifting Gear clist (perusage).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 15)
+                {
+                    <p style="font-weight: bold;">3A.13 (2) WIRE ROPE & CHAIN SLING CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Quaterly</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3A.13 (2)_WireRopeChainSling.doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 16)
+                {
+                    <p style="font-weight: bold;">3B.03 ERGONOMICS DISCOMFORT QUESTIONNAIRE</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Annually</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3B.03_Ergonomicsclist (1 Tahun).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 17)
+                {
+                    <p style="font-weight: bold;">2.41 HEAD PROTECTION CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3.05 (2.41) HEAD PROTECTION (6month).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 18)
+                {
+                    <p style="font-weight: bold;">2.42 EYE AND FACE PROTECTION CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+
+                            <li>Protection & Automation (PROA)</li>
+
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "12674_SEMS Checklist 2.42 .doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 19)
+                {
+                    <p style="font-weight: bold;">2.43 FOOT PROTECTION CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3.05 (2.43) FOOT PROTECTION (6month).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 20)
+                {
+                    <p style="font-weight: bold;">2.45 RESPIRATORY PROTECTION CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+
+                            <li>Protection & Automation (PROA)</li>
+
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "12676_SEMS Checklist 2.45 .doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 21)
+                {
+                    <p style="font-weight: bold;">3B.02 HEARING CONSERVATION CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>Annually</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3B.02_PPE Hearing Clist (perusage).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else if (formID == 22)
+                {
+                    <p style="font-weight: bold;">2.47 BODY HARNESS CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3.05 (2.47) Safety Harness  (6month).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+                else
+                {
+                    <p style="font-weight: bold;">2.48 HAND PROTECTION CHECKLIST</p>
+
+                    <ul>
+
+                        <li style="font-weight: bold;">Applicable to</li>
+                        <ul>
+                            <li>Substation & Diagnostics</li>
+                            <li>Lines & Cables</li>
+                            <li>Protection & Automation</li>
+                            <li>Maintenance Planner_MSO</li>
+                            <li>Maintenance Planner_Civil</li>
+                            <li>Replacement & Refurbishment</li>
+                        </ul>
+
+                        <li style="font-weight: bold;">Frequency</li>
+                        <ul>
+                            <li>6 Months</li>
+                        </ul>
+
+
+
+                    </ul>
+                    <div>
+                        <a class="btn btn-warning" href="@Url.Action("DownloadFile", "Form", new {fileName= "3.05 (2.48) Hand Protection  (6month).doc"})"><i class="fa fa-file-download"></i> Download Form</a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header justify-content-center">
+                Form Preview
+            </div>
+            <div class="card-body">
+                @switch (formID)
+                {
+                    case 1:<img src="~/Content/Image/3a01(1)-Building.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 2: <img src="~/Content/Image/3A01(2)-Lighting_Intensity.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 3: <img src="~/Content/Image/3A03-Colour_Coding.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 4: <img src="~/Content/Image/3A04(1)-HandTools.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 5: <img src="~/Content/Image/3A04(2)-Labelling_of.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 6: <img src="~/Content/Image/3A04(3)-Portable_Electrical.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 7: <img src="~/Content/Image/3A04(4)-Equipment_Guarding_Safeguard.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 8: <img src="~/Content/Image/3A05-Compressed_Gas.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 9: <img src="~/Content/Image/3A06(1)-Electrical_Installation.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 10: <img src="~/Content/Image/3A06(2)-Residual_Current.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 11: <img src="~/Content/Image/3A08-Lock-out_System.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 12: <img src="~/Content/Image/3A11(2)-Ladders,.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 13: <img src="~/Content/Image/3A11(3)-Scaffolding.jpg" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 14: <img src="~/Content/Image/Lifting.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 15: <img src="~/Content/Image/Wire_rope.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 16: <img src="~/Content/Image/Ergonomics.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 17: <img src="~/Content/Image/Head.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 18: <img src="~/Content/Image/EyeFace.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 19: <img src="~/Content/Image/Foot.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 20: <img src="~/Content/Image/Respiratory.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 21: <img src="~/Content/Image/Hearing.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 22: <img src="~/Content/Image/Harness.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+                    case 23: <img src="~/Content/Image/Hand.png" class="img-fluid" alt="Sample image" height="100" width="500" />; break;
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@*</div>*@
+
+
+
+

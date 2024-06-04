@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HSEMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PEE_Form">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="submitted_date" Type="DateTime" Precision="3" />
+    <Property Name="item_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="registration_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="spec1" Type="Int32" />
+    <Property Name="spec2" Type="Int32" />
+    <Property Name="spec3" Type="Int32" />
+    <Property Name="spec4" Type="Int32" />
+    <Property Name="spec5" Type="Int32" />
+    <Property Name="others" Type="Int32" />
+    <Property Name="action" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="approved" Type="Int32" />
+    <Property Name="approved_by" Type="Int32" />
+    <Property Name="approved_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="user_id" />
+      <PropertyRef Name="username" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="employee_id" Type="Int32" />
+    <Property Name="dept_id" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="HSEMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PEE_Form" EntityType="Self.PEE_Form" />
+    <EntitySet Name="People" EntityType="Self.Person" />
+  </EntityContainer>
+</Schema>

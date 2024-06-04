@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HSEMS.Models.Person>
+
+@{
+    ViewBag.Title = "List User";
+}
+
+
+<p class="mt-1">
+    <a class="openModalBtn btn btn-danger" href='javascript:;' data-url="@Url.Action("UserForm", "User")"><i class="bi bi-person-add"></i> Add User</a>
+
+</p>
+<table class="table table-hover table-bordered" style="background-color:black !important">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unitName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.roleName)
+        </th>
+
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unitName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.subUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.roleName)
+            </td>
+            <td>
+                <a class="openModalBtn" style="color:black" href="javascript:;" data-url="@Url.Action("UserForm","User", new { user_id = item.user_id })"><i class="bi bi-pencil-square"></i></a>
+                @Html.Raw("<a class='deleteUser' style='color:black' href ='" + Url.Action("DeleteUser", "User", new { item.user_id }) + "'><i class='bi bi-trash'></i></a>")
+            </td>
+        </tr>
+    }
+
+</table>

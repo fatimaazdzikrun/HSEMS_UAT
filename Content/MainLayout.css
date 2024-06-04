@@ -1,0 +1,6 @@
+.content-wrapper {
+  background-image: url('../Content/Image/GoLiveHomePage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 1);
+}
