@@ -51,7 +51,7 @@ namespace HSEMS.Models
                 }
                 con.Execute("INSERT INTO tbl_uploadedfile (FileNames, Uploaded_by, Date_uploaded, File_status, File_path, Freq) VALUES (@FileName, @username, GETDATE(), @status, @path, @freq )", new {FileName, user.username, status, path, freq});
                 var getfileid = con.Query<FileUploads>("SELECT * FROM tbl_uploadedfile WHERE Uploaded_by = @username AND FileNames = @FileName", new {user.username, FileName}).FirstOrDefault();
-                con.Execute("INSERT INTO tbl_document_approval(File_ID, Uploaded_by, Dept_id, Approval_status, subunit_id,team_id) VALUES (@ID, @user_id, @dept_id, 0, @subunit_id)", new { getfileid.ID, user.user_id, user.dept_id, user.subunit_id, user.assg_team});
+                con.Execute("INSERT INTO tbl_document_approval(File_ID, Uploaded_by, Dept_id, Approval_status, subunit_id,team_id) VALUES (@ID, @user_id, @dept_id, 0, @subunit_id, @assg_team)", new { getfileid.ID, user.user_id, user.dept_id, user.subunit_id, user.assg_team});
                  
             }
         }
