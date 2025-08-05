@@ -24,6 +24,7 @@ namespace HSEMS.Controllers
 
         }
 
+        [Authorize]
         public ActionResult ListForms()
         {
             if (Session["user"] == null)

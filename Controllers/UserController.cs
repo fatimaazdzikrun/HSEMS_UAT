@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Dapper;
 using HSEMS.Models;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OpenIdConnect;
+using Microsoft.Owin.Security;
 
 namespace HSEMS.Controllers
 {
@@ -144,6 +147,24 @@ namespace HSEMS.Controllers
 
             Session.RemoveAll();
             return RedirectToAction("login", new { ReturnURL });
+        }
+
+        public void SignIn()
+        {
+            if (!Request.IsAuthenticated)
+            {
+
+                HttpContext.GetOwinContext()
+                    .Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" },
+                        OpenIdConnectAuthenticationDefaults.AuthenticationType);
+            }
+        }
+
+        public void SignOut()
+        {
+
+            HttpContext.GetOwinContext().Authentication.SignOut(
+            OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
         }
     }
 }

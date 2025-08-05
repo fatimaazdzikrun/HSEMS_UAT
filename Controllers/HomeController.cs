@@ -11,6 +11,7 @@ namespace HSEMS.Controllers
 {
 	public class HomeController : Controller
 	{
+		[Authorize]
 		public ActionResult Index()
 		{
 			if (Session["user"] == null)
