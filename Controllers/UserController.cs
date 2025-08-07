@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Dapper;
+using HSEMS.Models;
+using Microsoft.Office.Interop.Word;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OpenIdConnect;
+using System;
 using System.Collections.Generic;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Dapper;
-using HSEMS.Models;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.OpenIdConnect;
-using Microsoft.Owin.Security;
 
 namespace HSEMS.Controllers
 {
@@ -107,11 +109,15 @@ namespace HSEMS.Controllers
 
         public ActionResult Authenticate(Person data)
         {
-
-            var getdetailsofuser = Person.GetDetailsOfUser(data.username, data.password);
-            if (getdetailsofuser != null)
+            if (AuthenticateUser(data.username, data.password))
             {
-                Session["user"] = getdetailsofuser;
+                var user = GetUserDetails(data.username);
+                Session["user"] = new
+                {
+                    Username = user.SamAccountName,
+                    DisplayName = user.DisplayName,
+                    Email = user.EmailAddress
+                };
 
                 if (string.IsNullOrEmpty(data.ReturnURL))
                 {
@@ -125,17 +131,45 @@ namespace HSEMS.Controllers
                     var result = new { link = data.ReturnURL };
                     return Json(result, JsonRequestBehavior.AllowGet);
                 }
-
-
-
             }
             else
             {
-                var result = new { link = "" };
-                return Json(result, JsonRequestBehavior.AllowGet);
+                ViewBag.Error = "Invalid username or password.";
+                return View();
             }
 
+
+            //var getdetailsofuser = Person.GetDetailsOfUser(data.username, data.password);
+            //if (getdetailsofuser != null)
+            //{
+            //    Session["user"] = getdetailsofuser;
+
+            //    if (string.IsNullOrEmpty(data.ReturnURL))
+            //    {
+            //        var link = Url.Action("Index", "Home");
+            //        var result = new { link = link };
+            //        return Json(result, JsonRequestBehavior.AllowGet);
+            //    }
+            //    else
+            //    {
+
+            //        var result = new { link = data.ReturnURL };
+            //        return Json(result, JsonRequestBehavior.AllowGet);
+            //    }
+
+
+
+            //}
+            //else
+            //{
+            //    var result = new { link = "" };
+            //    return Json(result, JsonRequestBehavior.AllowGet);
+            //}
+
         }
+
+
+
 
         public ActionResult Logout(string ReturnURL = "", string stop = "")
         {
@@ -149,22 +183,38 @@ namespace HSEMS.Controllers
             return RedirectToAction("login", new { ReturnURL });
         }
 
-        public void SignIn()
+        public bool AuthenticateUser(string username, string password)
         {
-            if (!Request.IsAuthenticated)
+            using (var context = new PrincipalContext(ContextType.Domain, "tnb.my"))
             {
-
-                HttpContext.GetOwinContext()
-                    .Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" },
-                        OpenIdConnectAuthenticationDefaults.AuthenticationType);
+                return context.ValidateCredentials(username, password);
             }
         }
 
-        public void SignOut()
+        public UserPrincipal GetUserDetails(string username)
         {
-
-            HttpContext.GetOwinContext().Authentication.SignOut(
-            OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+            using (var context = new PrincipalContext(ContextType.Domain, "tnb.my"))
+            {
+                return UserPrincipal.FindByIdentity(context, username);
+            }
         }
+
+        //public void SignIn()
+        //{
+        //    if (!Request.IsAuthenticated)
+        //    {
+
+        //        HttpContext.GetOwinContext()
+        //            .Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" },
+        //                OpenIdConnectAuthenticationDefaults.AuthenticationType);
+        //    }
+        //}
+
+        //public void SignOut()
+        //{
+
+        //    HttpContext.GetOwinContext().Authentication.SignOut(
+        //    OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+        //}
     }
 }
