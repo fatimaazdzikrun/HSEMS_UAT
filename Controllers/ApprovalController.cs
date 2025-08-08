@@ -209,7 +209,7 @@ namespace HSEMS.Controllers
             // Sample data - replace this with your actual data retrieval logic
 
             var getforms = new List<ApprovalForm>();
-            if(sessionuser.employee_id == 10084975) // currently Ir. Hidayat is admin so can have all data
+            if(sessionuser.role_id == 1) //  admin so can have all data
             {
                 getforms = ApprovalForm.GetAllFormsSubmittedExcel(sessionuser.dept_id, sessionuser.subunit_id);
             }
