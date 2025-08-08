@@ -1,0 +1,385 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
+.required {
+  color: #D40511;
+}
+
+.bs-tooltip-top {
+  /*    margin-top: -11px;
+    margin-left: 7px;*/
+  /*left: 15px !important;*/
+}
+
+.dataTables_filter input {
+  height: 33.5px;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+  padding-top: 0;
+  margin-right: 2em;
+  margin-left: 2em;
+}
+
+.dataTables_length > label {
+  margin-bottom: 0;
+}
+
+.page-item.disabled .page-link {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.page-link, .page-link:hover, .page-link:active {
+  color: rgb(94, 105, 113);
+  border: none;
+}
+
+.pagination {
+  border: none !important;
+}
+
+.dataTables_filter > label {
+  margin-bottom: 0;
+}
+
+
+
+.card.card-outline-tabs {
+  border-top: 0;
+}
+
+.bg-warning, .alert-warning {
+  background-color: #FFCD00 !important;
+}
+
+.modal-content {
+  border: none;
+}
+
+.active {
+  background-color: #FFCD00 !important;
+  color: black !important;
+}
+/*.nav-treeview > .nav-item > .nav-link.active {
+    background-color: rgba(255,255,255,.9) !important;
+    color: black !important;
+}*/
+
+/*.card-outline {
+    border-top: 6px solid #ffcd00 !important;
+}*/
+
+.limit-max-height .select2-container .select2-selection {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.btn {
+  /*border-radius: 15px;*/
+}
+
+.long-table th {
+  position: sticky;
+  top: 0px;
+  background-color: #FFD616;
+  z-index: 999;
+}
+
+.action {
+  text-align: right;
+  /*width: 70px;*/
+}
+
+  .action a {
+    cursor: pointer !important;
+    color: #666;
+  }
+
+  .action i {
+    cursor: pointer !important;
+  }
+
+  .action a:hover {
+    background: #ccc;
+    border-radius: 5px;
+    padding: 1px;
+  }
+
+table.dataTable.no-footer {
+  /*border-bottom: 0 !important;*/
+}
+
+table {
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+  table thead th {
+    background-color: #ffcd00;
+    text-align: center;
+    color: #485056;
+    /*overflow: hidden;*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: Roboto,Noto Sans JP,Noto Sans SC,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+.table thead th {
+  border-bottom: none;
+  border-top: none;
+}
+
+.table tr:first-child td {
+  /*border-top: none;*/
+}
+
+td {
+  /*text-align: center;*/
+}
+
+.table-card {
+  border-radius: 0;
+}
+
+  .table-card table {
+    margin-bottom: 0;
+  }
+
+th a, th {
+  color: Black;
+}
+
+
+.table-pager {
+  text-align: right;
+}
+
+  .table-pager > td {
+    padding-top: 10px;
+    text-align: right;
+  }
+
+    .table-pager > td > a {
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 3px 7px;
+      color: #333;
+      margin: 2px;
+    }
+
+      .table-pager > td > a:hover {
+        background-color: #f0f0f0;
+      }
+
+#floatingSummary {
+  width: 100%;
+  position: fixed;
+  top: 60px;
+  left: 25%;
+  z-index: 9999;
+}
+
+.alert-fixed {
+  max-width: 60%;
+  z-index: 9999;
+  border-radius: 0px;
+  margin-bottom: 0 !important;
+}
+
+  .alert-fixed .alert {
+    margin-bottom: 0 !important;
+  }
+
+.main-header {
+  background-color: #FFCD00 !important;
+}
+
+.table-avatar {
+  border-radius: 50%;
+  display: inline;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+}
+
+td {
+  word-break: break-word;
+}
+
+.swal2-popup {
+  font-size: 12px !important;
+}
+
+/* override select 2 styling */
+
+.select2 {
+  width: 100% !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  color: #333;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  /*background-color: #FFD616 !important;*/
+}
+
+.select2-container--default .select2-selection--single, .select2-container--default .select2-selection--multiple {
+  border-radius: 0;
+  border-color: #ced4da !important;
+  min-height: 34px !important;
+}
+
+  .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    float: none;
+    border-right: 1px #aaa solid;
+    padding-right: 10px;
+  }
+
+/*
+ * Force Bootstrap v4 transitions
+ * (ignores prefers-reduced-motion media feature)
+ * https://gist.github.com/robssanches/33c6c1bf4dd5cf3c259009775883d1c0
+ */
+
+.fade {
+  transition: opacity 0.15s linear !important;
+}
+
+.collapsing {
+  transition: height 0.35s ease !important;
+}
+
+.custom-switch .custom-control-label::after {
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-transform 0.15s ease-in-out !important;
+  transition: transform 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+  transition: transform 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out,-webkit-transform 0.15s ease-in-out !important;
+}
+
+.custom-range::-webkit-slider-thumb {
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+
+.custom-range::-moz-range-thumb {
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+
+.custom-range::-ms-thumb {
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+
+.custom-control-label::before, .custom-file-label, .custom-select {
+  transition: background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+
+.badge {
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+
+.progress-bar {
+  transition: width 0.6s ease !important;
+}
+
+.progress-bar-animated {
+  -webkit-animation: progress-bar-stripes 1s linear infinite !important;
+  animation: progress-bar-stripes 1s linear infinite !important;
+}
+
+.modal.fade .modal-dialog {
+  transition: -webkit-transform 0.3s ease-out !important;
+  transition: transform 0.3s ease-out !important;
+  transition: transform 0.3s ease-out,-webkit-transform 0.3s ease-out !important;
+}
+
+.carousel-item {
+  transition: -webkit-transform 0.6s ease-in-out !important;
+  transition: transform 0.6s ease-in-out !important;
+  transition: transform 0.6s ease-in-out,-webkit-transform 0.6s ease-in-out !important;
+}
+
+.carousel-fade .carousel-item {
+  transition-property: opacity !important;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  transition: 0s 0.6s opacity !important;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  transition: opacity 0.15s ease !important;
+}
+
+.carousel-indicators li {
+  transition: opacity 0.6s ease !important;
+}
+
+.form-control {
+  transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+
+.btn {
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out !important;
+}
+
+
+
+/*dropzone*/
+
+
+#dropzone {
+}
+
+.dropzone {
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  background: white;
+}
+
+.dropzone {
+  border: 2px dashed #FFCD00;
+  border-radius: 5px;
+  background: white;
+}
+
+  .dropzone .dz-message {
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+
+    .dropzone .dz-message .note {
+      font-weight: 200;
+      display: block;
+      margin-top: 1.4rem;
+    }
+
+

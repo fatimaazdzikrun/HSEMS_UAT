@@ -1,0 +1,196 @@
+﻿﻿@model HSEMS.Models.Person
+@{
+    Layout = null;
+    string ReturnURL = ViewBag.ReturnURL;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Content/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css">
+    <link rel="shortcut icon" href="~/Content/Image/tnb.ico" />
+    <!-- jQuery -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>$.widget.bridge('uibutton', $.ui.button)</script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/Content/AdminLTE-3.2.0/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/Content/AdminLTE-3.2.0/~/Content/AdminLTE-3.2.0/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/moment/moment.min.js"></script>
+    <script src="~/Content/AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/Content/AdminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
+
+    <link href="~/Content/LoginLayout.css" rel="stylesheet" type="text/css">
+
+    <style>
+
+        /*body {
+        background-image: url("HSEMS_bg.png");*/
+        /*background-color: #cccccc;*/
+        /*}*/
+
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+
+
+        @@media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="bgbig row d-flex justify-content-center align-items-center h-100">
+                @*<div class="bg-image"
+                         style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+                    height: 100vh">
+                    </div>*@
+
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="~/Content/Image/TNB-Login.png"
+                         class="img-fluid" alt="Sample image" height="500" width="500">
+                    <div class="row justify-content-center align-items-center"><h5 style="text-align:center; color:antiquewhite;">HSEMS Go LiVe!</h5></div>
+
+                </div>
+
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form id="loginform" method="post">
+
+
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="username" class="form-control form-control-lg"
+                                   placeholder="Enter a valid employee id" />
+                            <label class="form-label" for="form3Example3" style="color:white;">Employee ID</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-3">
+                            <input type="password" id="password" class="form-control form-control-lg"
+                                   placeholder="Enter password" />
+                            <label class="form-label" for="form3Example4" style="color:white;">Password</label>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- Checkbox -->
+                            <div class="form-check mb-0">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                                <label class="form-check-label" for="form2Example3" style="color:white;">
+                                    Remember me
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button id="loginbutton" type="button" class="btn btn-primary btn-lg"
+                                    style="padding-left: 2.5rem; padding-right: 2.5rem; background-color:darkslateblue;">
+                                Login
+                            </button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary" style="background-color: darkslateblue !important">
+            <!-- Copyright -->
+            <div class="text-white mb-3 mb-md-0">
+                Copyright © 2023. All rights reserved.
+            </div>
+            <!-- Copyright -->
+            <!-- Right -->
+            <!-- Right -->
+        </div>
+
+    </section>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+    $("#loginbutton").click(function () {
+
+        //var frmData = $("#loginform").serialize();
+        //console.log(frmData)
+        let ReturnURL1 = "@ReturnURL";
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Authenticate", "User")',
+                data: { username: $("#username").val(), password: $("#password").val(), ReturnURL: ReturnURL1 },
+                dataType: 'json',
+                success:
+                    function (result) {
+                        if (result.link == "" ) {
+                            swal({
+                                title: "Error!",
+                                text: "This user does not exist in system",
+                                icon: "error",
+
+                            });
+                        }
+                        else {
+                            window.location.href = result.link;
+                        }
+                    },
+
+                error: function () {
+                    alert("Data Not Found");
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>
+
+

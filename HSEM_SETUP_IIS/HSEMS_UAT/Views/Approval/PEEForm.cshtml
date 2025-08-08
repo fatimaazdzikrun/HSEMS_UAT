@@ -1,0 +1,350 @@
+﻿﻿﻿@model List<HSEMS.Models.PEE_Form>
+
+@{
+    ViewBag.Title = "PEEForm";
+}
+
+<style>
+    .table {
+        /*  table-layout: fixed;*/
+        width: 100%;
+    }
+
+    .bg-warning.border.align-content-center {
+        border-radius: 5px;
+        padding: 8px;
+    }
+</style>
+
+<div class="row mt-4">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header bg-danger text-dark">
+                @*<div class="d-flex align-items-center">
+                        <h5 class="mx-auto">
+
+                        </h5>
+                    </div>*@
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="~/Content/Image/TNB_Logo2.png" width="300" height="64" />
+                    </div>
+                    <div class="col-lg-6">
+                        <h6>Bahagian Grid</h6>
+                        <h6>Tenaga Nasional Berhad</h6>
+                    </div>
+                </div>
+                <div class="row mt-4 mb-3">
+                    <div class="col-lg-6">
+                        <table>
+                            <tr><td style="width:280px">HSEMS Checklist Element:</td><td style="text-align:left">3A.04(3) Portable Electrical Equipment</td></tr>
+                            <tr><td>Tanggungjawab:</td><td style="text-align:left">Safety Rep. / Admin/ Pomen/ Appointed PIC</td></tr>
+                            <tr><td>Kekerapan:</td><td style="text-align:left">3 (tiga) bulan sekali</td></tr>
+                            <tr><td>Rujukan:</td><td style="text-align:left">HSEMS Manual</td></tr>
+                            <tr><td>Objektif:</td><td style="text-align:left">Memastikan semua peralatan elektrik</td></tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="col-sm-offset-3">
+                            <div class="bg-warning border align-content-center" style="width:200px">
+                                <h6>Sila tandakan dalam petak yang disediakan</h6>
+                                <b>/</b> - Berkeadaan Baik<br />
+                                <i class="fa fa-times"></i> - Perlu Tindakan<br />
+                                <b>TB</b> - Tidak berkaitan
+                            </div><br />
+                        </div>
+                        <div class="col-sm-offset-3">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="float-lg-right mt-2">
+                    @*<button type="button" class="btn btn-danger" id="addRow" onclick="AddRow()"><i class="fa fa-plus"></i> Add Item</button>*@
+                </div>
+                <form id="formapprover" method="post">
+                    <table class="table table-bordered table-responsive" cellpadding="0" cellspacing="0" id="PEE_Table" style="overflow-x:auto">
+                        <thead>
+                            <tr>
+
+                                <th>Keterangan Peralatan</th>
+                                <th>Brand/Make</th>
+                                <th>No Daftar</th>
+                                <th>Penyambungan Longgar</th>
+                                <th>Wayar Penebat Pecah/Retak</th>
+                                <th>Bebas drpd sambungan tidak selamat</th>
+                                <th>Suis dalam keadaan baik</th>
+                                <th>Soket / Adapter dalam keadaan baik</th>
+                                <th>Lain-lain(Bateri, Fius dan sebagainya)</th>
+                                <th>Tindakan</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @if (Model != null)
+                            {
+
+                                for (int i = 0; i < Model.Count; i++)
+                                {
+                                    <tr>
+                                        <td>@Model[i].item_description</td>
+                                        <td>@Model[i].brand</td>
+                                        <td>@Model[i].registration_no</td>
+                                        <td>
+                                            @if (Model[i].spec1 == 1)
+                                            {
+                                                @Html.Raw("/")
+                                            }
+                                            else if (Model[i].spec1 == 2)
+                                            {
+                                                @Html.Raw("X")
+                                            }
+                                            else if (Model[i].spec1 == 3)
+                                            {
+                                                @Html.Raw("TB")
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (Model[i].spec2 == 1)
+                                            {
+                                                @Html.Raw("/")
+                                            }
+                                            else if (Model[i].spec2 == 2)
+                                            {
+                                                @Html.Raw("X")
+                                            }
+                                            else if (Model[i].spec2 == 3)
+                                            {
+                                                @Html.Raw("TB")
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (Model[i].spec3 == 1)
+                                            {
+                                                @Html.Raw("/")
+                                            }
+                                            else if (Model[i].spec3 == 2)
+                                            {
+                                                @Html.Raw("X")
+                                            }
+                                            else if (Model[i].spec3 == 3)
+                                            {
+                                                @Html.Raw("TB")
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (Model[i].spec4 == 1)
+                                            {
+                                                @Html.Raw("/")
+                                            }
+                                            else if (Model[i].spec4 == 2)
+                                            {
+                                                @Html.Raw("X")
+                                            }
+                                            else if (Model[i].spec4 == 3)
+                                            {
+                                                @Html.Raw("TB")
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (Model[i].spec5 == 1)
+                                            {
+                                                @Html.Raw("/")
+                                            }
+                                            else if (Model[i].spec5 == 2)
+                                            {
+                                                @Html.Raw("X")
+                                            }
+                                            else if (Model[i].spec5 == 3)
+                                            {
+                                                @Html.Raw("TB")
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (Model[i].others == 1)
+                                            {
+                                                @Html.Raw("/")
+                                            }
+                                            else if (Model[i].others == 2)
+                                            {
+                                                @Html.Raw("X")
+                                            }
+                                            else if (Model[i].others == 3)
+                                            {
+                                                @Html.Raw("TB")
+                                            }
+                                        </td>
+                                        <td>@Html.TextBoxFor(model => Model[i].action, htmlAttributes: new { @class = "form-control form-control-border" }) </td>
+                                    </tr>
+
+                                    @*<tr>
+                                            <td>@Model.details[i].item_description</td>
+                                            <td>@Model.details[i].brand</td>
+                                            <td>@Model.details[i].registration_no</td>
+                                            <td>
+                                                @if (Model.details[i].spec1 == 1)
+                                                {
+                                                    @Html.Raw("/")
+                                                }
+                                                else if (Model.details[i].spec1 == 2)
+                                                {
+                                                    @Html.Raw("X")
+                                                }
+                                                else if (Model.details[i].spec1 == 3)
+                                                {
+                                                    @Html.Raw("TB")
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.details[i].spec2 == 1)
+                                                {
+                                                    @Html.Raw("/")
+                                                }
+                                                else if (Model.details[i].spec2 == 2)
+                                                {
+                                                    @Html.Raw("X")
+                                                }
+                                                else if (Model.details[i].spec2 == 3)
+                                                {
+                                                    @Html.Raw("TB")
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.details[i].spec3 == 1)
+                                                {
+                                                    @Html.Raw("/")
+                                                }
+                                                else if (Model.details[i].spec3 == 2)
+                                                {
+                                                    @Html.Raw("X")
+                                                }
+                                                else if (Model.details[i].spec3 == 3)
+                                                {
+                                                    @Html.Raw("TB")
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.details[i].spec4 == 1)
+                                                {
+                                                    @Html.Raw("/")
+                                                }
+                                                else if (Model.details[i].spec4 == 2)
+                                                {
+                                                    @Html.Raw("X")
+                                                }
+                                                else if (Model.details[i].spec4 == 3)
+                                                {
+                                                    @Html.Raw("TB")
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.details[i].spec5 == 1)
+                                                {
+                                                    @Html.Raw("/")
+                                                }
+                                                else if (Model.details[i].spec5 == 2)
+                                                {
+                                                    @Html.Raw("X")
+                                                }
+                                                else if (Model.details[i].spec5 == 3)
+                                                {
+                                                    @Html.Raw("TB")
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.details[i].others == 1)
+                                                {
+                                                    @Html.Raw("/")
+                                                }
+                                                else if (Model.details[i].others == 2)
+                                                {
+                                                    @Html.Raw("X")
+                                                }
+                                                else if (Model.details[i].others == 3)
+                                                {
+                                                    @Html.Raw("TB")
+                                                }
+                                            </td>
+                                            <td>@Html.TextBoxFor(model => Model.details[i].action, htmlAttributes: new { @class = "form-control form-control-border" }) </td>
+                                        </tr>*@
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+
+
+                    <div class="row mt-2">
+                        <div class="col-lg-6">
+                            <table class="table table-borderless">
+                                <tr><td>Diperiksa oleh:</td><td><img src="@Url.Content("~/Content/Image/ExampleSign.png")" width="100" height="100" /></td></tr>
+                                <tr><td>Nama:</td><td>Fatima Az Dzikrun</td></tr>
+                                <tr><td>Tarikh:</td><td>@Html.Raw(String.Format("{0:dd/MM/yyyy}", ViewData["date"]))</td></tr>
+                            </table>
+                        </div>
+                        @if ((int)ViewData["statusform"] == 1)
+                        {
+                            <div class="col-lg-6">
+                                <table class="table table-borderless">
+                                    <tr><td>Disemak oleh:</td><td><button id="ApproveButton" class="btn btn-success">Approved</button></td></tr>
+                                    <tr><td>Nama:</td><td></td></tr>
+                                    <tr><td>Tarikh:</td><td></td></tr>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-lg-6">
+                                <table class="table table-borderless">
+                                    <tr><td>Disemak oleh:</td><td>Approver</td></tr>
+                                    <tr><td>Nama:</td><td>Mr Approver</td></tr>
+                                    <tr><td>Tarikh:</td><td>@Html.Raw(String.Format("{0:dd/MM/yyyy}", ViewData["dateapproved"]))</td></tr>
+                                </table>
+                            </div>
+                        }
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>*@
+@*<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>*@
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#ApproveButton').click(function (e) {
+        e.preventDefault();
+        var frmData = $("#formapprover").serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("save_approverForm", "Approval")',
+            datatype: 'json',
+            data: frmData,
+            success: function (data) {
+                if (data['message']) {
+                    Swal.fire({ title: data['message'], type: 'success', showCancelButton: false, showConfirmButton: false, timer: 1500, position: 'center' });
+                    setTimeout(() => window.location.replace(document.referrer), 2000);
+                }
+                else if (data['exist']) {
+                    Swal.fire({ title: 'Data Cannot Be Added', html: data['exist'] + " existed ! ", type: 'error', showCancelButton: false, showConfirmButton: false, timer: 2500, position: 'center' })
+                    setTimeout(() => window.location.replace(document.referrer), 2750);
+
+                }
+            },
+            error: function () {
+                alert("Data Not Found");
+            }
+        });
+
+
+    });
+ /*   onclick = 'RemoveRow(tr_"+count+")'*/
+</script>
+
+

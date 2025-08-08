@@ -1,0 +1,140 @@
+﻿﻿﻿@model List<HSEMS.Models.ApprovalForm>
+
+@{
+    ViewBag.Title = "Submitted Form";
+    int count = 0;
+    var sessionuser = (HSEMS.Models.Person)Session["user"];
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Add Dropzone.js -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+
+<style>
+    .approveddisabled {
+        pointer-events: none; /* Prevent the link from being clickable */
+        color: gray; /* Change the color to indicate it's disabled */
+        cursor: not-allowed; /* Show the 'not-allowed' cursor when hovering */
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
+<div class="row mb-2"></div>
+<div class="justify-content-end align-content-md-end">
+    <a class="btn btn-success" href="@Url.Action("DownloadExcel", "Approval", new { })"><i class="fa fa-file-excel"></i> Download Excel</a>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header bg-danger text-dark">
+                @*<div class="d-flex align-items-center">
+                        <h5 class="mx-auto">
+
+                        </h5>
+                    </div>*@
+            </div>
+            <div class="card-body">
+
+                <table class="table" id="ListForms">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Form</th>
+                            <th>Submitted On</th>
+                            <th>Created By </th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@Html.Raw(count) </td>
+                                <td>@Html.Raw(item.detailsFile.FileNames)</td>
+                                <td>@Html.Raw(string.Format("{0:dd/MM/yyyy}", item.detailsFile.Date_uploaded))</td>
+                                <td>@Html.Raw(item.detailsFile.Uploaded_by)</td>
+                                <td>
+                                    @if (item.Approval_Status == 0)
+                                    {
+                                        <label style="color:red">Signature Required</label>
+                                    }
+                                    else if (item.Approval_Status == 1)
+                                    {
+                                        <label style="color:darkorange">Need Approval</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="color:green"> Approved </label>
+                                    }
+                                </td>
+                                <td>
+                                    <a class="btn btn-info" href="@Url.Action("DownloadFile", "Approval", new {file_id= item.File_ID})"><i class="fa fa-file-download"></i> Download</a>
+                                    <a class="openModalBtn btn btn-warning" href="javascript:;" data-url="@Url.Action("UploadModal","Approval", new {file_id=item.File_ID, doc_id=item.ID})"><i class="fa fa-upload"></i> Upload</a>
+                                    @if (item.Approval_Status == 1)
+                                    {
+                                        <a class="approved btn btn-success"><i class="fa fa-check"></i> Approved</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="approveddisabled btn btn-success"><i class="fa fa-check"></i> Approved</a>
+                                    }
+
+                                    <span class="DocID" style="display:none;">@item.ID</span>
+
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts {
+    <script>
+
+        $('.approved').on('click', function (e) {
+            let row = $(this).closest('tr');
+            let ID = row.find(".DocID").html();
+           $.ajax({
+            type: "post",
+            url: '@Url.Action("ConfirmApproval", "Approval")',
+               data: { doc_id: ID },
+               dataType: 'json',
+               success: function (data) {
+                   var url = '@Url.Action("ListSubmittedForm", "Approval")';
+                   window.location.href = url;
+
+                },
+                error: function () {
+                    location.reload;
+                    return false;
+                },
+                finally: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
+
+
+
+}
+
+
+
+
+
+
+
