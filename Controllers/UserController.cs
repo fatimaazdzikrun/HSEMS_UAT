@@ -111,14 +111,9 @@ namespace HSEMS.Controllers
         {
             if (AuthenticateUser(data.username, data.password))
             {
-                var user = GetUserDetails(data.username);
-                Session["user"] = new
-                {
-                    Username = user.SamAccountName,
-                    DisplayName = user.DisplayName,
-                    Email = user.EmailAddress
-                };
+                var user = Person.GetExistingUser(data.username);
 
+                Session["user"] = user;
                 if (string.IsNullOrEmpty(data.ReturnURL))
                 {
                     var link = Url.Action("Index", "Home");
