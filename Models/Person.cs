@@ -68,7 +68,7 @@ namespace HSEMS.Models
         {
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["HSEMS"].ToString()))
             {
-                var getsessionuser = con.Query<Person>("SELECT * FROM Person WHERE username = @username ", new { username }).FirstOrDefault();
+                var getsessionuser = con.Query<Person>("SELECT * FROM Person WHERE employee_id = @username ", new { username }).FirstOrDefault();
                 return getsessionuser;
             }
         }

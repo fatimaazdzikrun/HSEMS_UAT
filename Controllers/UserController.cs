@@ -80,7 +80,7 @@ namespace HSEMS.Controllers
            
             if (newuser.user_id == 0)
             {
-                var gettheexistinguser = Person.GetExistingUser(newuser.username);
+                var gettheexistinguser = Person.GetExistingUser(newuser.employee_id.ToString());
                 Person.AddUser(newuser);
             }
             else
